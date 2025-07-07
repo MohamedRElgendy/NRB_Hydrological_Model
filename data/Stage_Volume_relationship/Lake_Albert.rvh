@@ -1,0 +1,11 @@
+# Lake-like reservoir
+:Reservoir Albert					
+	:SubBasinID 3				
+	:HRUID 37	
+  	:Type 		RESROUTE_STANDARD 
+	:WeirCoefficient 0.6
+	:CrestWidth 80			#Calibrate
+	:MaxDepth 25	
+	:LakeArea 5320000000
+	:AbsoluteCrestHeight 619	#Calibrate		
+:EndReservoir					

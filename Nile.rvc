@@ -1,0 +1,36 @@
+#########################################################################
+#:FileType rvc ASCII Raven 1.0
+# DataType         Raven Initial Conditions file
+
+#---------------------------------------------------------
+#Ready
+## Initial reservoir stages
+#Victoria Lake or Owen Falls
+:InitialReservoirStage 1 1.139582E+03
+#Jebel Aulia
+:InitialReservoirStage 8 3.839863E+02
+#Roseires
+:InitialReservoirStage 12 4.701448E+02
+#Sennar
+:InitialReservoirStage 13 4.197273E+02
+#AHD 
+:InitialReservoirStage 19 1.666891E+02
+#Khashm Elgibra
+:InitialReservoirStage 16 4.737986E+02
+
+#Lake Tana Calculated
+:InitialReservoirStage 9 1.788746E+03
+#Lake KyogaKwania Assumed
+:InitialReservoirStage 2 1.031011E+03
+#Lake Albert Assumed
+:InitialReservoirStage 3 6.209682E+02
+
+# After 1997 dams
+#Tekeze
+#:InitialReservoirStage 15 1096
+#GERD
+#:InitialReservoirStage 11 633
+#Merowe
+#:InitialReservoirStage 18 300
+
+

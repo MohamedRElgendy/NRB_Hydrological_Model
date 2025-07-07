@@ -1,0 +1,18 @@
+# Lake-like reservoir
+:Reservoir Tana					
+	:SubBasinID 9				
+	:HRUID 87
+	:Type 		RESROUTE_STANDARD
+	:WeirCoefficient 0.6
+	:CrestWidth 5.01			#Calibrate
+	:MaxDepth 13	
+	:LakeArea 304718000
+	:AbsoluteCrestHeight 1786		
+:EndReservoir					
+
+
+#:LakeArea 3047180000
+#:AbsoluteCrestHeight 1784		
+
+#:MaxDepth 13	
+#:LakeArea 304718000

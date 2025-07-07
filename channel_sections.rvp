@@ -1,0 +1,449 @@
+#ChannelSections calculated using DEM 30m
+# Channel roughness Zones assigned for bed and  sides 0.035  for banks 0.05
+#to make sure that the channel accommodates flow I added extra 1000 m on both sides with extra elevation of 100m. For sub 19 and sub 20 added 2000 m distance and 200m elev on both sides
+:ChannelProfile sub2profile
+  :Bedslope 0.000471
+  :SurveyPoints
+0	1157
+1000	1057
+1198	1044
+1937	1044
+20353	1067
+21353	1167
+
+  :EndSurveyPoints
+  :RoughnessZones
+		 0       0.050
+		 1198     0.035
+		 1937     0.050
+		 21353   0.050
+  :EndRoughnessZones
+:EndChannelProfile
+
+
+:ChannelProfile sub3profile
+  :Bedslope 0.00145
+  :SurveyPoints
+0	1195
+1000	1095
+2882	1034
+3621	1034
+7656	1156
+8656	1256
+
+  :EndSurveyPoints
+  :RoughnessZones
+		 0       0.050
+		 2882     0.035
+		 3621     0.050
+		 8656   0.050
+  :EndRoughnessZones
+:EndChannelProfile
+
+
+:ChannelProfile sub7profile
+  :Bedslope 0.000203
+  :SurveyPoints
+0	729
+1000	629
+1517	586
+1617	564
+1717	564
+1787	574
+2217	617
+3217	717
+
+  :EndSurveyPoints
+  :RoughnessZones
+0	0.05
+1517	0.035
+1617	0.035
+1717	0.035
+1787	0.05
+3217	0.05
+
+  :EndRoughnessZones
+:EndChannelProfile
+
+
+:ChannelProfile sub6profile
+  :Bedslope 0.000094
+  :SurveyPoints
+0	524
+1000	424
+7940	421
+8100	416
+8293	416
+8600	423
+32600	433
+33600	533
+  :EndSurveyPoints
+
+  :RoughnessZones
+0	0.05
+7940	0.035
+8100	0.035
+8293	0.035
+8600	0.05
+33600	0.035
+  :EndRoughnessZones
+:EndChannelProfile
+
+
+:ChannelProfile sub8profile
+  :Bedslope 0.0000187
+  :SurveyPoints
+0	495
+1000	395
+22925	387
+22950	381
+24061	381
+24175	391
+27900	401
+28900	501
+  :EndSurveyPoints
+
+  :RoughnessZones
+0	0.05
+22925	0.035
+22950	0.035
+24061	0.035
+24175	0.05
+28900	0.05
+  :EndRoughnessZones
+:EndChannelProfile
+
+
+:ChannelProfile sub10profile
+  :Bedslope 0.002360404
+  :SurveyPoints
+0	1347
+1000	1247
+1645	1144
+1721	1132
+1783	1132
+1820	1144
+2290	1348
+3290	1448
+  :EndSurveyPoints
+
+  :RoughnessZones
+0	0.05
+1645	0.035
+1721	0.035
+1783	0.035
+1820	0.05
+3290	0.05
+  :EndRoughnessZones
+:EndChannelProfile
+
+
+:ChannelProfile sub11profile
+  :Bedslope 0.000818529
+  :SurveyPoints
+0	862
+1000	762
+1265	677
+1345	652
+1435	652
+1519	677
+2045	804
+3045	904
+  :EndSurveyPoints
+
+  :RoughnessZones
+0	0.05
+1265	0.035
+1345	0.035
+1435	0.035
+1519	0.05
+3045	0.05
+  :EndRoughnessZones
+:EndChannelProfile
+
+
+:ChannelProfile sub12profile
+  :Bedslope 0.000164212
+  :SurveyPoints
+0	634
+1000	534
+2538	498
+2563	491
+3073	491
+3113	498
+3938	525
+4938	625
+  :EndSurveyPoints
+
+  :RoughnessZones
+0	0.05
+2538	0.035
+2563	0.035
+3073	0.035
+3113	0.05
+4938	0.05
+  :EndRoughnessZones
+:EndChannelProfile
+
+
+:ChannelProfile sub13profile
+  :Bedslope 0.0000976
+  :SurveyPoints
+0	564
+1000	464
+1630	451
+1665	441
+2160	441
+2166	446
+2920	460
+3920	570
+  :EndSurveyPoints
+
+  :RoughnessZones
+0	0.05
+1630	0.035
+1665	0.035
+2160	0.035
+2166	0.05
+3920	0.05
+  :EndRoughnessZones
+:EndChannelProfile
+
+
+:ChannelProfile sub14profile
+  :Bedslope 0.0000938
+  :SurveyPoints
+0	505
+1000	405
+1710	402
+1820	390
+2111	390
+2160	397
+2430	405
+3430	505
+  :EndSurveyPoints
+
+  :RoughnessZones
+0	0.05
+1710	0.035
+1820	0.035
+2111	0.035
+2160	0.05
+3430	0.05
+  :EndRoughnessZones
+:EndChannelProfile
+
+
+:ChannelProfile sub18profile
+  :Bedslope 0.000199
+  :SurveyPoints
+0	456
+1000	356
+1525	349
+1590	341
+2212	341
+2308	348
+3440	350
+4440	450
+  :EndSurveyPoints
+
+  :RoughnessZones
+0	0.05
+1525	0.035
+1590	0.035
+2212	0.035
+2308	0.05
+4440	0.05
+  :EndRoughnessZones
+:EndChannelProfile
+
+
+:ChannelProfile sub16profile
+  :Bedslope 0.00019801
+  :SurveyPoints
+0	895
+1000	795
+1380	769
+1427	761
+1527	761
+1575	766
+1955	775
+2955	875
+  :EndSurveyPoints
+
+  :RoughnessZones
+0	0.05
+1380	0.035
+1427	0.035
+1527	0.035
+1575	0.05
+2955	0.05
+  :EndRoughnessZones
+:EndChannelProfile
+
+:ChannelProfile sub17profile
+  :Bedslope 0.000178694
+  :SurveyPoints
+0	521
+1000	421
+1224	413
+1291	408
+1318	408
+1385	412
+1850	422
+2850	522
+  :EndSurveyPoints
+
+  :RoughnessZones
+0	0.05
+1224	0.035
+1291	0.035
+1318	0.035
+1385	0.05
+2850	0.05
+  :EndRoughnessZones
+:EndChannelProfile
+
+
+:ChannelProfile sub19profile
+  :Bedslope 0.0000628
+  :SurveyPoints
+0	339
+1000	239
+1625	233
+1725	228
+2045	228
+2125	233
+2950	248
+3950	348
+  :EndSurveyPoints
+
+  :RoughnessZones
+0	0.05
+1625	0.035
+1725	0.035
+2045	0.035
+2125	0.05
+3950	0.05
+  :EndRoughnessZones
+:EndChannelProfile
+
+
+:ChannelProfile sub20profile
+  :Bedslope 0.000076
+  :SurveyPoints
+0	183
+1000	83
+1018	78
+1048	69
+1576	69
+1613	77
+1680	79
+2680	179
+  :EndSurveyPoints
+
+  :RoughnessZones
+0	0.05
+1018	0.035
+1048	0.035
+1576	0.035
+1613	0.05
+2680	0.05
+  :EndRoughnessZones
+:EndChannelProfile
+
+:ChannelProfile sub21profile
+  :Bedslope 0.0000538
+  :SurveyPoints
+0	502
+1000	402
+6003	399
+12857	395
+13029	395
+13087	398
+15407	399
+16407	499
+  :EndSurveyPoints
+
+  :RoughnessZones
+0	0.05
+6003	0.035
+12857	0.035
+13029	0.035
+13087	0.05
+16407	0.05
+  :EndRoughnessZones
+:EndChannelProfile
+
+
+:ChannelProfile sub22profile
+  :Bedslope 0.000162791
+  :SurveyPoints
+0	456
+1000	356
+1525	349
+1590	341
+2212	341
+2308	348
+3440	350
+4440	450
+  :EndSurveyPoints
+
+  :RoughnessZones
+0	0.05
+1525	0.035
+1590	0.035
+2212	0.035
+2308	0.05
+4440	0.05
+  :EndRoughnessZones
+:EndChannelProfile
+
+
+:ChannelProfile sub24profile
+  :Bedslope 0.000067
+  :SurveyPoints
+0	456
+1000	356
+1525	349
+1590	341
+2212	341
+2308	348
+3440	350
+4440	450
+  :EndSurveyPoints
+
+  :RoughnessZones
+0	0.05
+1525	0.035
+1590	0.035
+2212	0.035
+2308	0.05
+4440	0.05
+  :EndRoughnessZones
+:EndChannelProfile
+
+
+:ChannelProfile sub23profile
+  :Bedslope 0.0000887
+  :SurveyPoints
+0	456
+1000	356
+1525	349
+1590	341
+2212	341
+2308	348
+3440	350
+4440	450
+  :EndSurveyPoints
+
+  :RoughnessZones
+0	0.05
+1525	0.035
+1590	0.035
+2212	0.035
+2308	0.05
+4440	0.05
+  :EndRoughnessZones
+:EndChannelProfile
+

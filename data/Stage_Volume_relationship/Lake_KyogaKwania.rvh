@@ -1,0 +1,11 @@
+# Lake-like reservoir
+:Reservoir KyogaKwania					
+	:SubBasinID 2				
+	:HRUID 21	
+  	:Type 		RESROUTE_STANDARD 
+	:WeirCoefficient 0.6
+	:CrestWidth 80			#Calibrate
+	:MaxDepth 3.5	
+	:LakeArea 2260000000
+	:AbsoluteCrestHeight 1032	#Calibrate			
+:EndReservoir					

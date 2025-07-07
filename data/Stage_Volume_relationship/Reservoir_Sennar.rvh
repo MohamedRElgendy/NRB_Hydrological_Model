@@ -1,0 +1,15 @@
+:Reservoir Sennar					
+	:SubBasinID 13				
+	:HRUID 111						
+	:StageRelations				
+		6	# number of points		
+#stage(m) flows(m3/s) vol(m3)	area(m2)
+417	0	115000000	35000000
+418	0	150000000	45000000
+419	0	195000000	55000000
+420	0	250000000	65000000
+421	0	315000000	65000000
+422	0	445000000	65000000
+	:EndStageRelations
+	:MinStageConstraintDominant					
+:EndReservoir					

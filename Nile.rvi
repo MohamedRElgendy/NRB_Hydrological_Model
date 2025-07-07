@@ -1,0 +1,85 @@
+# ----------------------------------------------
+# Raven Input file
+# HBV-EC Nile River emulation test case
+# ----------------------------------------------
+# --Simulation Details -------------------------
+:StartDate       1983-01-01 00:00:00
+:EndDate	 1987-12-31	00:00:00                
+:Method          ORDERED_SERIES
+:TimeStep        1.0
+
+:RunName         run1
+#
+# --Model Details -------------------------------
+:Interpolation       INTERP_NEAREST_NEIGHBOR
+#:Interpolation       INTERP_INVERSE_DISTANCE
+:Routing             ROUTE_HYDROLOGIC
+:CatchmentRoute      ROUTE_TRI_CONVOLUTION
+:Evaporation         PET_HARGREAVES_1985
+:OW_Evaporation      PET_HARGREAVES_1985
+:PrecipIceptFract    PRECIP_ICEPT_USER
+:SoilModel           SOIL_MULTILAYER 3
+
+:LakeStorage	                LAKE_STORAGE		  # Specifies the state variable to be used for rainfall on lake HRUs. Explanation in P.137 of the manual.
+
+
+#
+# --Hydrologic Processes-------------------------
+:Alias       TOPSOIL SOIL[0]
+:Alias       FAST_RESERVOIR SOIL[1]
+:Alias       SLOW_RESERVOIR SOIL[2]
+:LakeStorage SLOW_RESERVOIR
+# -Process _ Routine _ From _ To---
+# For wetlands depression overflow we assumed the power-law threshold algorithm is valid
+:HydrologicProcesses
+  :Precipitation     PRECIP_RAVEN       ATMOS_PRECIP     MULTIPLE    #Same as Sens Anal
+  :CanopyEvaporation CANEVP_ALL         CANOPY           ATMOSPHERE  #Same as Sens Anal
+  :SoilEvaporation   SOILEVAP_HBV       SOIL[0]          ATMOSPHERE  #Same as Sens Anal
+  :SoilEvaporation   SOILEVAP_HBV       FAST_RESERVOIR   ATMOSPHERE  #Same as Sens Anal
+  :LakeEvaporation 	LAKE_EVAP_BASIC 		LAKE_STORAGE 		ATMOSPHERE 	# different from Sens Analysis. Evapotranspiration process from lakes.
+  :OpenWaterEvaporation   OPEN_WATER_EVAP     	        DEPRESSION    	        ATMOSPHERE 	# different from Sens Anal. Evapotranspitation process from all kinds of open water. It is not the manual HBV-EC.
+  :OpenWaterEvaporation   OPEN_WATER_EVAP     	        PONDED_WATER   	        ATMOSPHERE # different from Sens Anal.
+  :Infiltration      INF_HBV            PONDED_WATER     MULTIPLE	#Same as Sens Anal
+  :CapillaryRise     CRISE_HBV          FAST_RESERVOIR   SOIL[0]	#Same as Sens Anal		
+  :Percolation       PERC_CONSTANT      FAST_RESERVOIR   SLOW_RESERVOIR		#rechanged to match Sens Anal
+  :Baseflow          BASE_POWER_LAW     FAST_RESERVOIR   SURFACE_WATER		#Same as Sens Anal
+  :Baseflow          BASE_LINEAR 			SLOW_RESERVOIR		SURFACE_WATER 	#rechanged to match Sens Anal
+  :DepressionOverflow DFLOW_THRESHPOW 	DEPRESSION 		 SURFACE_WATER
+  :Flush             	RAVEN_DEFAULT      		SLOW_RESERVOIR		SURFACE_WATER   # For LAKE type HRU as infiltration inactive there. Different from Sens Anal
+    		:-->Conditional HRU_TYPE IS LAKE
+  :Abstraction       	ABST_FILL     			PONDED_WATER            DEPRESSION 	# Different from Sens Anal. Not affecting results
+  :CanopyDrip 		CANDRIP_RUTTER 		CANOPY 			PONDED_WATER 	#  in the manual 
+  :Interflow		INTERFLOW_PRMS			TOPSOIL			SURFACE_WATER 	# interflow process from topsoil to surface. not in the manual HBV-EC. Not in Sens Anal. If used, a parameter MAX_INTERFLOW_RATE should be added. Use if needed for calibration. From PRMS model
+  :Percolation       	PERC_GAWSER     		TOPSOIL			FAST_RESERVOIR 	# Not in Sens Anal  
+
+:EndHydrologicProcesses
+
+###Other processes in Rasel model can be considered
+
+##:OpenWaterEvaporation   OPEN_WATER_EVAP     	        SURFACE_WATER  	        ATMOSPHERE # different from Sens Anal. Caused negative flow values. Do not consider
+
+## --Output Options-------------------------------
+#:WriteForcingFunctions
+#:AggregatedVariable FAST_RESERVOIR AllHRUs
+#:AggregatedVariable SLOW_RESERVOIR AllHRUs
+#:CustomOutput DAILY AVERAGE PRECIP BY_BASIN
+#:CustomOutput DAILY AVERAGE TEMP_DAILY_AVE BY_BASIN
+#:CustomOutput DAILY AVERAGE TEMP_DAILY_MAX BY_BASIN
+#:CustomOutput DAILY AVERAGE TEMP_DAILY_MIN BY_BASIN
+#:CustomOutput DAILY AVERAGE PRECIP BY_HRU
+#:CustomOutput DAILY AVERAGE TEMP_DAILY_AVE BY_HRU
+#:CustomOutput DAILY AVERAGE TEMP_DAILY_MAX BY_HRU
+#:CustomOutput DAILY AVERAGE TEMP_DAILY_MIN BY_HRU
+#:CustomOutput DAILY AVERAGE RUNOFF BY_HRU
+
+#One month eaxcluded for model spinup. 3yrs calibration. variable yrs validation
+#:EvaluationPeriod CalibAndValid 1983-02-01 1987-12-31
+#:EvaluationPeriod Calibration 1983-02-01 1985-12-31 
+#:EvaluationPeriod Validation 1988-01-01 1997-12-31
+#:EvaluationMetrics NASH_SUTCLIFFE
+
+#:SilentMode 		# it minimize the output to the command prompt.
+#:SuppressOutput 	# suppress all output except the diagnostics leading to faster run per iteration in calibration
+
+
+#:CreateRVPTemplate

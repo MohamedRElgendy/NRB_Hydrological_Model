@@ -1,0 +1,180 @@
+#-----------------------------------------------------------------
+# Raven Properties file Template. Created by Raven v3.8.0
+#-----------------------------------------------------------------
+# all expressions of format *xxx* need to be specified by the user 
+# all parameter values of format ** need to be specified by the user 
+# soil, land use, and vegetation classes should be made consistent with user-generated .rvh file 
+#-----------------------------------------------------------------
+
+# ----Soil Classes---------------------------- Done
+:SoilClasses
+  :Attributes,  %SAND,  %CLAY,  %SILT,  %ORGANIC
+  :Units,   none, none, none, none
+  TOPSOILA, 0.95,  0.05,  0.0,  0.0
+  FASTRESA, 0.95,  0.05,  0.0,  0.0
+  SLOWRESA, 0.95,  0.05,  0.0,  0.0
+  TOPSOILB, 0.7,  0.2,  0.1,  0.0
+  FASTRESB, 0.7,  0.2,  0.1,  0.0
+  SLOWRESB, 0.7,  0.2,  0.1,  0.0
+  TOPSOILC, 0.25,  0.3,  0.45,  0.0
+  FASTRESC, 0.25,  0.3,  0.45,  0.0
+  SLOWRESC, 0.25,  0.3,  0.45,  0.0
+  TOPSOILD, 0.25,  0.4,  0.35,  0.0
+  FASTRESD, 0.25,  0.4,  0.35,  0.0
+  SLOWRESD, 0.25,  0.4,  0.35,  0.0
+  TOPSOILE, 0.25,  0.4,  0.35,  0.0
+  FASTRESE, 0.25,  0.4,  0.35,  0.0
+  SLOWRESE, 0.25,  0.4,  0.35,  0.0
+
+  # E is for Default HRU (missing data and gaps)
+:EndSoilClasses
+
+# --- Soil Profiles ---------------------------- Done 
+:SoilProfiles
+  SOILPROFA,    3,    TOPSOILA, 6.249019E-01, FASTRESA, 8.901411E+01,  SLOWRESA, 1.852166E+02
+  SOILPROFB,    3,    TOPSOILB, 1.994448E+00, FASTRESB, 1.965845E+01,  SLOWRESB, 1.722267E+02
+  SOILPROFC,    3,    TOPSOILC, 1.993099E+00, FASTRESC, 4.048005E+01,  SLOWRESC, 2.214884E+02
+  SOILPROFD,    3,    TOPSOILD, 1.881986E+00, FASTRESD, 5.264472E+01,  SLOWRESD, 6.193714E+01
+  DEFAULTPROF,  3,    TOPSOILE, 1.960078E+00, FASTRESE, 1.452640E+01,  SLOWRESE, 1.772274E+02
+  LAKE,         0
+  WETLAND,  	3,    TOPSOILE, 1.686715E-01, FASTRESE, 1.849565E-01,  SLOWRESE, 2.168804E+02
+:EndSoilProfiles
+
+
+# --- Land Use Classes Done------------------------ Done
+:LandUseClasses
+:Attributes,  IMPERM,   FOREST_COV,
+:Units,      fract,    fract,  
+  URBAN,     1.776598E-03,      	0
+  CROPLAND,  0.0,      0.5
+  GRASSLAND, 0.0,      0.5
+  FOREST,    0.0,      0.5
+  BARELAND,  0.0,      0
+  WATER,     0.0,      0.0
+  WETLAND,   0.0,      0.5
+  LAKE,      0.0,      0.0
+
+:EndLandUseClasses
+
+
+# --- Vegetation Classes ------------------------- Done
+:VegetationClasses
+  :Attributes,  MAX_HT,   MAX_LAI,    MAX_LEAF_COND
+  :Units,            m,     none,     mm_per_s
+  [DEFAULT],         22.53,    5,          10.05
+  CROP1,      _DEFAULT,   _DEFAULT,   _DEFAULT
+  FOREST1,    _DEFAULT,   _DEFAULT,   _DEFAULT
+  GRASS1,     _DEFAULT,   _DEFAULT,   _DEFAULT
+  WETLAND1,   _DEFAULT,   _DEFAULT,   _DEFAULT
+  URBAN1,            0,     0,          0
+  WATER1,            0,     0,          0
+  BARELAND1,         0,     0,          0
+  OPEN,              0,     0,          0
+ 
+:EndVegetationClasses
+
+
+#--- Parameter specification -------------------
+
+#--- Global Parameters ------------------------- Done
+:GlobalParameter RAINSNOW_TEMP     0.0
+:GlobalParameter        TOC_MULTIPLIER 		1	#may use
+:GlobalParameter        RESERVOIR_RELAX 	5.826432E-01		#may use for reservoir calibration
+:GlobalParameter AVG_ANNUAL_RUNOFF 30 # mm reference to Sutcliffe,1999
+
+#--- Class Parameters -------------------------
+
+#--- Soil Class Parameters ------------------------- Done
+:SoilParameterList
+:Parameters	POROSITY	FIELD_CAPACITY	SAT_WILT	HBV_BETA	MAX_CAP_RISE_RATE	MAX_PERC_RATE	BASEFLOW_COEFF	BASEFLOW_N	PET_CORRECTION	MAX_INTERFLOW_RATE
+:Units	none	none	none	none	mm/d	mm/d	1/d	none	frac	mm/d
+[DEFAULT]	0.35	0.5	0.45	3.5	250	250	0.51	0.51	1.190840E+00	1
+TOPSOILA	4.303705E-01	3.134750E-01	2.137600E-01	9.199437E-01	2.645996E+02	2.025281E+02	6.485685E-02	7.981971E-01	_DEFAULT	9.097589E+02
+FASTRESA	4.303705E-01	3.134750E-01	2.137600E-01	-1.23456	6.389055E+01	2.543570E+02	4.280137E-02	5.121944E-02	-1.23456	-1.23456
+SLOWRESA	4.303705E-01	3.134750E-01	2.137600E-01	-1.23456	-1.23456	-1.23456	-1.23456	-1.23456	-1.23456	-1.23456
+TOPSOILB	5.755849E-01	5.939446E-01	3.423307E-01	3.445599E+00	2.645996E+02	2.025281E+02	6.485685E-02	7.981971E-01	_DEFAULT	3.909386E+02
+FASTRESB	5.755849E-01	5.939446E-01	3.423307E-01	-1.23456	6.389055E+01	2.543570E+02	4.280137E-02	5.121944E-02	-1.23456	-1.23456
+SLOWRESB	5.755849E-01	5.939446E-01	3.423307E-01	-1.23456	-1.23456	-1.23456	-1.23456	-1.23456	-1.23456	-1.23456
+TOPSOILC	4.711978E-01	5.163832E-01	2.709878E-01	3.493673E+00	2.645996E+02	2.025281E+02	6.485685E-02	7.981971E-01	_DEFAULT	6.537124E+02
+FASTRESC	4.711978E-01	5.163832E-01	2.709878E-01	-1.23456	6.389055E+01	2.543570E+02	4.280137E-02	5.121944E-02	-1.23456	-1.23456
+SLOWRESC	4.711978E-01	5.163832E-01	2.709878E-01	-1.23456	-1.23456	-1.23456	-1.23456	-1.23456	-1.23456	-1.23456
+TOPSOILD	5.277439E-01	8.492822E-01	7.220484E-01	3.472818E+00	2.645996E+02	2.025281E+02	6.485685E-02	7.981971E-01	_DEFAULT	7.592331E+00
+FASTRESD	5.277439E-01	8.492822E-01	7.220484E-01	-1.23456	6.389055E+01	2.543570E+02	4.280137E-02	5.121944E-02	-1.23456	-1.23456
+SLOWRESD	5.277439E-01	8.492822E-01	7.220484E-01	-1.23456	-1.23456	-1.23456	-1.23456	-1.23456	-1.23456	-1.23456
+TOPSOILE	3.347518E-01	6.627118E-01	2.966708E-01	3.475855E+00	2.645996E+02	2.025281E+02	6.485685E-02	7.981971E-01	_DEFAULT	9.869360E+02
+FASTRESE	3.347518E-01	6.627118E-01	2.966708E-01	-1.23456	6.389055E+01	2.543570E+02	4.280137E-02	5.121944E-02	-1.23456	-1.23456
+SLOWRESE	3.347518E-01	6.627118E-01	2.966708E-01	-1.23456	-1.23456	-1.23456	-1.23456	-1.23456	-1.23456	-1.23456  
+:EndSoilParameterList
+
+#--- Landuse Class Parameters ------------------------- Done
+
+:LandUseParameterList
+:Parameters,     MELT_FACTOR,   FOREST_SPARSENESS,  DEP_THRESHHOLD,   DEP_N,  DEP_MAX_FLOW, DEP_MAX,	OW_PET_CORR, LAKE_PET_CORR
+ :Units,           mm/d/K,       fract,		   			 mm,		      none,    mm/d,	    mm,		none,		none
+ [DEFAULT],         1.88,         0.5,		    		500.01,	   		1.75,	  100,	      500,	     1.196371E+00,		0	
+  URBAN,     	_DEFAULT,           _DEFAULT, 			7.076001E+01,	_DEFAULT,	2.670190E+02,  7.971899E+02,	_DEFAULT,	0
+  CROPLAND,  	_DEFAULT,           _DEFAULT, 			4.171001E+02,	_DEFAULT,	3.197664E+02,  8.399679E+02,	_DEFAULT,	0
+  GRASSLAND, 	_DEFAULT,           _DEFAULT, 			8.056243E+01,	_DEFAULT,	4.281247E+02,  7.068645E+02,	_DEFAULT,	0
+  FOREST,    	_DEFAULT,           _DEFAULT, 			2.284180E+02,	_DEFAULT,	1.184030E+02,  6.010981E+02,	_DEFAULT,	0
+  BARELAND,  	_DEFAULT,           0, 					8.878767E+01,	_DEFAULT,	4.041839E+02,  8.508620E+02,	_DEFAULT,	0
+  WATER,     	_DEFAULT,           0, 					1.886120E+02,	_DEFAULT,	4.285611E+02,  5.400552E+02,	_DEFAULT,	0
+  WETLAND,   	_DEFAULT,           _DEFAULT, 			depThr_Wa,	_DEFAULT,	depmaxflow_Wa,  depmax_Wa,	_DEFAULT,	0
+  LAKE,             0,          	 0, 					0,			0,			0,	    	0,			0,		1.192558E+00
+:EndLandUseParameterList
+
+#1.192558E+00
+
+#--- vegetation Class Parameters ------------------------- Not yet
+:VegetationParameterList
+  :Parameters,  SAI_HT_RATIO, MAX_CAPACITY, MAX_SNOW_CAPACITY, RAIN_ICEPT_PCT,   SNOW_ICEPT_PCT
+  :Units,         none,           mm,              mm,                none,       none,
+  [DEFAULT],     0.5,          	25.5,         50.5,                0.26,       0.25,
+   CROP1	_DEFAULT	_DEFAULT	_DEFAULT	_DEFAULT	_DEFAULT
+  FOREST1	_DEFAULT	_DEFAULT	_DEFAULT	_DEFAULT	_DEFAULT
+  URBAN1	_DEFAULT	_DEFAULT	_DEFAULT	_DEFAULT	_DEFAULT
+  WATER1	0		0		0		0		0
+  WETLAND1	_DEFAULT	_DEFAULT	_DEFAULT	_DEFAULT	_DEFAULT
+  BARELAND1	_DEFAULT	_DEFAULT	_DEFAULT	_DEFAULT	_DEFAULT
+  GRASS1	_DEFAULT	_DEFAULT	_DEFAULT	_DEFAULT	_DEFAULT
+    OPEN	0	0	0	0	0
+
+
+:EndVegetationParameterList
+
+:SeasonalCanopyLAI
+#				J	    	F	     	M		    A		   M		   J	    	J	     	A		   S		   O	      	N	    	D
+[DEFAULT]	  0.5 		   0.5    	0.5  		0.5        	0.5  		0.5  		0.5  		0.5  		0.5  		0.5  		0.5  		0.5 
+ CROP1	    _DEFAULT	  _DEFAULT	  _DEFAULT	  _DEFAULT	_DEFAULT	_DEFAULT	_DEFAULT	_DEFAULT	_DEFAULT	_DEFAULT	_DEFAULT	_DEFAULT
+  FOREST1	_DEFAULT	_DEFAULT	_DEFAULT	_DEFAULT	_DEFAULT	_DEFAULT	_DEFAULT	_DEFAULT	_DEFAULT	_DEFAULT	_DEFAULT	_DEFAULT
+  URBAN1	_DEFAULT	_DEFAULT	_DEFAULT	_DEFAULT	_DEFAULT	_DEFAULT	_DEFAULT	_DEFAULT	_DEFAULT	_DEFAULT	_DEFAULT	_DEFAULT
+  WATER1	_DEFAULT	_DEFAULT	_DEFAULT	_DEFAULT	_DEFAULT	_DEFAULT	_DEFAULT	_DEFAULT	_DEFAULT	_DEFAULT	_DEFAULT	_DEFAULT
+  WETLAND1	_DEFAULT	_DEFAULT	_DEFAULT	_DEFAULT	_DEFAULT	_DEFAULT	_DEFAULT	_DEFAULT	_DEFAULT	_DEFAULT	_DEFAULT	_DEFAULT
+  BARELAND1	_DEFAULT	_DEFAULT	_DEFAULT	_DEFAULT	_DEFAULT	_DEFAULT	_DEFAULT	_DEFAULT	_DEFAULT	_DEFAULT	_DEFAULT	_DEFAULT
+  GRASS1	_DEFAULT	_DEFAULT	_DEFAULT	_DEFAULT	_DEFAULT	_DEFAULT	_DEFAULT	_DEFAULT	_DEFAULT	_DEFAULT	_DEFAULT	_DEFAULT
+  OPEN	    _DEFAULT	_DEFAULT	_DEFAULT    _DEFAULT	_DEFAULT	_DEFAULT	_DEFAULT	_DEFAULT	_DEFAULT	_DEFAULT	_DEFAULT	_DEFAULT
+
+:EndSeasonalCanopyLAI
+
+
+
+# ----Channel profiles-------------------------
+:ChannelProfile default_trap
+    :Bedslope 0.00145
+  :SurveyPoints
+0	1195
+1000	1095
+2882	1034
+3621	1034
+7656	1156
+8656	1256
+
+  :EndSurveyPoints
+  :RoughnessZones
+		 0       0.050
+		 2882     0.035
+		 3621     0.050
+		 8656   0.050
+  :EndRoughnessZones
+:EndChannelProfile
+
+:RedirectToFile channel_sections.rvp
